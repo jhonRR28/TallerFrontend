@@ -1,0 +1,49 @@
+<div class="hero-section d-flex justify-content-center align-items-center">
+    <div class="overlay ">
+        <div class="container title">
+            <h2>Mascotas</h2>
+        </div>
+        <table class="table table-striped">
+            <thead>
+              <tr class="row">
+                <th class="col-sm-2"> CEDULA </th>
+                <th class="col-sm-4"> NOMBRE </th>
+                <th class="col-sm-4"> TELEFONO </th>
+                <th class="col-sm-2"> ACCIONES</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let adoptante of adoptantes | async" class="row">
+                <td class="col-sm-2"><i>{{ adoptante.cedula }}</i></td>
+                <td class="col-sm-4"><i>{{ adoptante.nombre }}</i></td>
+                <td class="col-sm-4"><i>{{ adoptante.telefono }}</i></td>
+                <td class="col-sm-1">
+                  <fieldset class="form-group col-sm-1">
+                    <a class="btn btn-info" [routerLink]="['/adoptantes/editar/', adoptante.cedula]">Editar</a>
+                  </fieldset>
+                </td>
+                <td class="col-sm-1">
+                  <fieldset class="form-group col-sm-1">
+                    <a class="btn btn-danger" (click)="borrarAdoptante(adoptante.cedula)">Borrar</a>
+                  </fieldset>
+                </td>
+              </tr>
+              <tr class="row">
+                <td class="col-sm-2"><i>10101010</i></td>
+                <td class="col-sm-4"><i>Jhon Roque</i></td>
+                <td class="col-sm-4"><i>3114556565</i></td>
+                <td class="col-sm-1">
+                  <fieldset class="form-group col-sm-1">
+                    <a class="btn btn-info" >Editar</a>
+                  </fieldset>
+                </td>
+                <td class="col-sm-1">
+                  <fieldset class="form-group col-sm-1">
+                    <a class="btn btn-danger" >Borrar</a>
+                  </fieldset>
+                </td>
+              </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

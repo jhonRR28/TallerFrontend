@@ -1,0 +1,41 @@
+<div class="hero-section d-flex justify-content-center align-items-center">
+    <div class="overlay ">
+        <div class="container title">
+            <h2>Mascotas</h2>
+        </div>
+        <form class="form-inline formulario">
+            <fieldset class="form-group col-sm-11"></fieldset>
+            <fieldset class="form-group col-sm-16">
+              <a class="btn btn-primary" [routerLink]="['/mascotas/agregar']">Agregar Mascota</a>
+            </fieldset>
+        </form>
+        <br>
+        <div class="row">
+            <!-- Columna 1 -->
+            <div class="col-md-6 columna" *ngFor="let mascota of mascotas | async">
+                <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row g-0 element">
+                        <div class="col-md-4">
+                            <img src="https://images.pexels.com/photos/333083/pexels-photo-333083.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="img-fluid rounded-start card-img" alt="...">
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card-body">
+                                <h5 class="card-title"><i>{{ mascota.nombre }}</i></h5>
+                                <p class="card-text"><strong>Raza:</strong> Golden Retriever</p>
+                                <p class="card-text"><strong>Edad:</strong><i> {{ mascota.edad }} </i>años</p>
+                                <p class="card-text"><strong>Sexo:</strong> {{ mascota.sexo }} </p>
+                                <p class="card-text"><strong>Descripción:</strong> {{ mascota.descripcion }}.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-2 d-flex flex-column justify-content-center align-items-center">
+                            <a class="btn btn-primary mb-2 w-100" [routerLink]="['/mascotas/editar/', mascota.id]">Editar</a>
+                            <a class="btn btn-danger w-100" (click)="borrarMascota(mascota.id)">Borrar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Más cards -->
+            <!-- Puedes agregar más cards aquí siguiendo el mismo formato -->
+        </div>
+    </div>
+</div>

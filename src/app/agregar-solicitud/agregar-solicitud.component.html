@@ -1,0 +1,34 @@
+<div class="hero-section d-flex justify-content-center align-items-center">
+    <div class="overlay">
+        <div class="container title">
+            <h2>Adopta una mascota</h2>
+        </div>
+        <form class="row g-3 formulario" (ngSubmit)="onSubmit()" #adoptanteForm="ngForm">
+            <div class="col-md-6">
+                <label for="inputEmail4" class="form-label textos">Cedula</label>
+                <input type="number" class="form-control" required [(ngModel)]="adoptante.cedula" name="cedula">
+            </div>
+            <div class="col-md-6">
+                <label for="inputPassword4" class="form-label textos">Nombre Completo</label>
+                <input type="text" class="form-control" required [(ngModel)]="adoptante.nombre" name="nombre">
+            </div>
+            <div class="col-12">
+                <label for="inputAddress" class="form-label textos">Direccion</label>
+                <input type="text" class="form-control" required [(ngModel)]="adoptante.direccion" name="direccion">
+            </div>
+
+            <div class="col-md-6">
+                <label for="inputCity" class="form-label textos">Telefono</label>
+                <input type="text" class="form-control" required [(ngModel)]="adoptante.telefono" name="telefono">
+            </div>
+            <div class="col-md-6">
+                <label for="inputZip" class="form-label textos">Correo</label>
+                <input type="email" class="form-control" required [(ngModel)]="adoptante.email" name="email">
+            </div>
+            <!-- Botón en forma de enlace <a> centrado y con más ancho -->
+            <div class="col-12 text-center my-5">
+                <button type="submit" class="btn btn-primary w-50" [disabled]="!adoptanteForm.form.valid">Enviar</button>
+            </div>
+        </form>
+    </div>
+</div>
